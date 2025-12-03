@@ -40,5 +40,6 @@ if __name__ == "__main__":
     signal.signal(signal.SIGTERM, signal_handler)
     signal.signal(signal.SIGINT, signal_handler)
 
+    # start load generator
     logging.info(f"Starting load generator for {api_url} with a delay of {delay_ms} milliseconds between requests.")
     run_load_generator(api_url, delay_ms)
