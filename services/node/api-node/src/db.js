@@ -10,7 +10,7 @@ const pool = new Pool({
   connectionString: databaseUrl,
 });
 
-// the pool will emit an error on behalf of any idle clients
+// the pool will emit an error on behalf of any idle client
 // it contains if a backend error or network partition happens
 pool.on("error", (err, client) => {
   console.error("Unexpected error on idle client", err);
