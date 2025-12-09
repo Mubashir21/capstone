@@ -15,3 +15,16 @@ tasks:
           -P ubuntu-24.04=catthehacker/ubuntu:act-22.04 \
           --directory ../../.. \
           -W .github/workflows/build-push.yaml
+
+  trigger-workflow-tag: 
+    desc: Trigger GitHub Actions workflow using act
+    cmds:
+      - |
+        act push \
+          --container-architecture linux/amd64 \
+          -s GITHUB_TOKEN="{{.GITHUB_TOKEN}}" \
+          -e {{.PWD}}/push-tag-event.json \
+          -P ubuntu-24.04=catthehacker/ubuntu:act-22.04 \
+          --directory ../../.. \
+          --no-skip-checkout \
+          -W .github/workflows/build-push.yaml
